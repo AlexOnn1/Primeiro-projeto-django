@@ -1,32 +1,44 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista de tarefas</title>
+     <link rel="stylesheet" href="{% static 'css/lista_de_tarefas/style.css' %}">
 </head>
 <body>
-    <a href="{% url 'home-projeto' %}">Voltar para tela principal</a>
-    <h1>Bem vindo {{nome}}, Aqui ficam suas tarefas!</h1>
-    <table border="1">
-        <thead>
-            <th>Nome</th>
-            <th>Descrição</th>
-            <th>Situação</th>
-            <th>Data de criação</th>
-        </thead>
-        <tbody>
-            {% for tarefa in tarefas %}
+    <div class="main-card">
+        <a href="{% url 'home-projeto' %}" class="nav-link">← Voltar para tela principal</a>
+        <h1>Bem-vindo {{nome}}!</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Situação</th>
+                    <th>Criação</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for tarefa in tarefas %}
                 <tr>
                     <td>{{tarefa.nome}}</td>
                     <td>{{tarefa.descricao}}</td>
-                    <td>{%if tarefa.completa == True %}Completa{% else %}Incompleta{% endif %}</td>
-                    <td>{{tarefa.data_criacao}}</td>
-                    <td><a href="{% url 'lista_de_tarefas:editar' tarefa.id %}">Editar Tarefa</a></td>
-                    <td><a href="{% url 'lista_de_tarefas:remover' tarefa.id %}">Remover Tarefa</a></td>
+                    <td>{% if tarefa.completa %}✅ Completa{% else %}⏳ Incompleta{% endif %}</td>
+                    <td>{{tarefa.data_criacao|date:"d/m/Y"}}</td>
+                    <td>
+                        <a href="{% url 'lista_de_tarefas:editar' tarefa.id %}" class="btn-edit">Editar</a>
+                        <a href="{% url 'lista_de_tarefas:remover' tarefa.id %}" class="btn-remove">Remover</a>
+                    </td>
                 </tr>
-            {% endfor %}
-    </table>
-    <a href="{% url 'lista_de_tarefas:adicionar' %}">Adicionar Tarefa</a> 
+                {% endfor %}
+            </tbody>
+        </table>
+        
+        <a href="{% url 'lista_de_tarefas:adicionar' %}" class="btn-main">+ Adicionar Nova Tarefa</a>
+    </div>
 </body>
 </html>

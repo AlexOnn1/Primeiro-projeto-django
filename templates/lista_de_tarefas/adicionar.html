@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
+    {% load static %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Adicionar Tarefa</title>
+    <link rel="stylesheet" href="{% static 'css/lista_de_tarefas/style.css' %}">
 </head>
 <body>
-    <h1>Adicione suas tarefas aqui!</h1>
-    <form action="" method="post">
-        <!-- necessário para evitar ataques de CSRF, é obrigatório em formulários POST -->
-        {% csrf_token %} 
-        {{form}}
-        <input type="submit" value="Adicionar">
-    </form>
+    <div class="main-card" style="max-width: 450px;">
+        <a href="{% url 'lista_de_tarefas:home-lista' %}" class="nav-link">← Cancelar</a>
+        <h1>Nova Tarefa</h1>
+        
+        <form action="" method="post">
+            {% csrf_token %} 
+            {{form.as_p}}
+            <input type="submit" value="Criar Tarefa" class="btn-main">
+        </form>
+    </div>
 </body>
 </html>

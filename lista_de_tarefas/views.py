@@ -16,7 +16,7 @@ def tarefas_adicionar(request:HttpRequest):
         formulario = TarefaForm(request.POST)
         if formulario.is_valid():
             formulario.save()
-            return redirect('lista_de_tarefas:home')
+            return redirect('lista_de_tarefas:home-lista')
     contexto = {
         "form" : TarefaForm
     }
@@ -25,7 +25,7 @@ def tarefas_adicionar(request:HttpRequest):
 def tarefas_remover(request:HttpRequest, id):
     tarefa = get_object_or_404(TarefaModel, id=id)
     tarefa.delete()
-    return redirect("lista_de_tarefas:home")
+    return redirect("lista_de_tarefas:home-lista")
 
 def tarefas_editar(request:HttpRequest, id):
 
@@ -34,7 +34,7 @@ def tarefas_editar(request:HttpRequest, id):
         formulario = TarefaForm(request.POST, instance=tarefa)
         if formulario.is_valid():
             formulario.save()
-            return redirect('lista_de_tarefas:home')
+            return redirect('lista_de_tarefas:home-lista')
         
     formulario = TarefaForm(instance=tarefa)
     contexto ={

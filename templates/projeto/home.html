@@ -1,13 +1,20 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projeto 01 - Django</title>
+    <link rel="stylesheet" href="{% static 'css/home_projeto.css' %}">
 </head>
 <body>
-    <h1>Projeto 01 - de Django</h1>
-    <h3>Acesse os aplicativos desenvolvidos pelos botões abaixo:</h3>
-    <a href="{% url 'lista_de_tarefas:home-lista' %}">Lista de tarefas</a>
+    <div class="container">
+        <h1>Projeto 01 - Django</h1>
+        <h3>Acesse os aplicativos desenvolvidos:</h3>
+        
+        <a href="{% url 'lista_de_tarefas:home-lista' %}" class="btn-app">
+            🚀 Abrir Lista de Tarefas
+        </a>
+    </div>
 </body>
 </html>
