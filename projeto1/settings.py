@@ -33,7 +33,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # Você também pode fazer o mesmo com o DEBUG:
 DEBUG = os.getenv('DEBUG') == 'True'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://primeiro-projeto-django-ke1o.onrender.com', '127.0.0.1', 'localhost']
 
 
 # Application definition
