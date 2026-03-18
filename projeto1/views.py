@@ -1,8 +1,6 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
-
-def teste_view(request):
-    return HttpResponse("Essa é a rota de teste!")
 
 def index_view(request):
-    return HttpResponse("<h1>Bem vindo, meu chapa</h1>")
+    return render(request, "projeto/home.html")

@@ -19,8 +19,9 @@
                 <tr>
                     <td>{{tarefa.nome}}</td>
                     <td>{{tarefa.descricao}}</td>
-                    <td>{%if tarefa.completa == True %} Completa {% else %} Incompleta {% endif %}</td>
+                    <td>{%if tarefa.completa == True %}Completa{% else %}Incompleta{% endif %}</td>
                     <td>{{tarefa.data_criacao}}</td>
+                    <td><a href="{% url 'lista_de_tarefas:editar' tarefa.id %}">Editar Tarefa</a></td>
                     <td><a href="{% url 'lista_de_tarefas:remover' tarefa.id %}">Remover Tarefa</a></td>
                 </tr>
             {% endfor %}
