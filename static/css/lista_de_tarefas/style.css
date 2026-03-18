@@ -21,7 +21,6 @@ body {
     box-sizing: border-box;
 }
 
-/* Card Principal */
 .main-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -38,7 +37,6 @@ h1 {
     font-size: 1.8rem;
 }
 
-
 .nav-link {
     display: inline-block;
     margin-bottom: 20px;
@@ -53,7 +51,6 @@ h1 {
     transform: translateX(-3px);
 }
 
-/* Tabelas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -77,7 +74,6 @@ td {
     color: var(--text-main);
 }
 
-/* Botões e Inputs */
 .btn-main {
     display: block;
     width: 100%;
@@ -118,8 +114,7 @@ input[type="text"], input[type="number"], textarea, select {
     border-radius: 8px;
     font-size: 1rem;
     box-sizing: border-box;
-     resize: vertical;
-    
+    resize: vertical;
     font-family: inherit; 
 }
 
@@ -138,11 +133,74 @@ form p input[type="checkbox"] {
     cursor: pointer;
 }
 
-
 form p:has(input[type="checkbox"]) label {
     margin: 0;
     cursor: pointer;
 }
 
+@media (max-width: 768px) {
+    .main-card {
+        padding: 1.5rem;
+    }
 
+    table, thead, tbody, th, td, tr {
+        display: block;
+    }
 
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        border: 1px solid var(--border);
+        margin-bottom: 10px;
+        border-radius: 8px;
+    }
+
+    td {
+        border: none;
+        border-bottom: 1px solid var(--border);
+        position: relative;
+        padding-left: 50%;
+        text-align: right;
+    }
+
+    td:last-child {
+        border-bottom: none;
+    }
+
+    td:before {
+        position: absolute;
+        left: 12px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: nowrap;
+        text-align: left;
+        font-weight: bold;
+        color: var(--text-muted);
+    }
+
+    td:nth-of-type(1):before { content: "Nome"; }
+    td:nth-of-type(2):before { content: "Descrição"; }
+    td:nth-of-type(3):before { content: "Situação"; }
+    td:nth-of-type(4):before { content: "Criação"; }
+    td:nth-of-type(5):before { content: "Ações"; }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .btn-remove {
+        margin-left: 0;
+        display: block;
+        margin-top: 10px;
+    }
+}

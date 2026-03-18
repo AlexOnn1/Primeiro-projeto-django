@@ -55,3 +55,41 @@ h3 {
     background-color: var(--primary-hover);
     transform: translateY(-2px);
 }
+
+@media (max-width: 768px) {
+    .container {
+        padding: 2rem;
+        width: 85%;
+    }
+
+    h1 {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .container {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .btn-app {
+        width: 100%;
+        padding: 12px 20px;
+        box-sizing: border-box;
+    }
+}
